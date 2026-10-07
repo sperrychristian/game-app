@@ -26,7 +26,7 @@ const styles = StyleSheet.create(
         number_text: {
             color: Colors.number_input,
             fontSize: 36,
-            fontWeight: 'bold'
+            fontFamily: 'open-sans-bold'
         }
     }
 )
