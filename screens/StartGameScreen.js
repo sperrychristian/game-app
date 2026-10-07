@@ -13,9 +13,8 @@ function StartGameScreen(props) {
     setEnteredNumber(entered_text);
   }
 
-  function numberInputHandler(entered_text) {
-    console.log("typed:", entered_text);
-    setEnteredNumber(entered_text);
+  function resetInputHandler() {
+    setEnteredNumber("");
   }
 
   function confirmInputHandler() {
@@ -38,10 +37,10 @@ function StartGameScreen(props) {
       <Title>Guess My Number</Title>
       <Card>
         <InstructionText>Enter A Number</InstructionText>
-          <TextInput
+        <TextInput
           style={styles.numberInput}
           maxLength={2}
-          keyboardAppearance="number-pad"
+          keyboardType="number-pad"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={numberInputHandler}
@@ -50,7 +49,7 @@ function StartGameScreen(props) {
 
         <View style={styles.buttons_container}>
           <View style={styles.button_container}>
-            <PrimaryButton> Reset </PrimaryButton>
+            <PrimaryButton onPress={resetInputHandler}> Reset </PrimaryButton>
           </View>
           <View style={styles.button_container}>
             <PrimaryButton onPress={confirmInputHandler}>
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     alignItems: "center",
   },
-    numberInput: {
+  numberInput: {
     height: 50,
     fontSize: 32,
     width: 80,
